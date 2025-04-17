@@ -1,0 +1,144 @@
+<!--
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Lung Cancer Prediction</title>
+</head>
+<body>
+    <h2>Lung Cancer Prediction</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>
+-->
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lung Cancer Prediction</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="{% static 'styles.css' %}" rel="stylesheet">
+    <style>
+        body {
+            background: url('{% static "background.jpg" %}') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            width: 80%; /* Increase width to make the form box larger */
+            max-width: 900px; /* Optional: set a maximum width for larger screens */
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px; /* Decrease padding to reduce height */
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            max-height: 90vh; /* Optional: set a maximum height */
+            overflow-y: auto; /* Add a scroll bar if the content exceeds the max-height */
+        }
+        h2 {
+            font-family: 'Arial', sans-serif;
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px; /* Add padding for the underline */
+            text-align: center; /* Center the text */
+        }
+        h2::after {
+            content: "";
+            display: block;
+            width: 100%; /* Extend the width to match the form container */
+            height: 3px; /* Adjust the height for the underline thickness */
+            background-color: #007bff;
+            position: absolute;
+            left: 0;
+            bottom: -10px; /* Position the underline closer to the heading */
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .form-group select, .form-group input {
+            width: 100%; /* Make the choice boxes and inputs full width */
+            padding: 5px; /* Add some padding for better appearance */
+            border-radius: 5px; /* Optional: add rounded corners */
+            border: 1px solid #ccc; /* Optional: add a border */
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #004085;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="form-container">
+            <h2 class="text-center">Lung Cancer Prediction</h2>
+            <form method="post" class="mt-4">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.gender.label_tag }} {{ form.gender }}
+                </div>
+                <div class="form-group">
+                    {{ form.age.label_tag }} {{ form.age }}
+                </div>
+                <div class="form-group">
+                    {{ form.smoking.label_tag }} {{ form.smoking }}
+                </div>
+                <div class="form-group">
+                    {{ form.yellow_fingers.label_tag }} {{ form.yellow_fingers }}
+                </div>
+                <div class="form-group">
+                    {{ form.anxiety.label_tag }} {{ form.anxiety }}
+                </div>
+                <div class="form-group">
+                    {{ form.peer_pressure.label_tag }} {{ form.peer_pressure }}
+                </div>
+                <div class="form-group">
+                    {{ form.chronic_disease.label_tag }} {{ form.chronic_disease }}
+                </div>
+                <div class="form-group">
+                    {{ form.fatigue.label_tag }} {{ form.fatigue }}
+                </div>
+                <div class="form-group">
+                    {{ form.allergy.label_tag }} {{ form.allergy }}
+                </div>
+                <div class="form-group">
+                    {{ form.wheezing.label_tag }} {{ form.wheezing }}
+                </div>
+                <div class="form-group">
+                    {{ form.alcohol_consuming.label_tag }} {{ form.alcohol_consuming }}
+                </div>
+                <div class="form-group">
+                    {{ form.coughing.label_tag }} {{ form.coughing }}
+                </div>
+                <div class="form-group">
+                    {{ form.shortness_of_breath.label_tag }} {{ form.shortness_of_breath }}
+                </div>
+                <div class="form-group">
+                    {{ form.swallowing_difficulty.label_tag }} {{ form.swallowing_difficulty }}
+                </div>
+                <div class="form-group">
+                    {{ form.chest_pain.label_tag }} {{ form.chest_pain }}
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Predict</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

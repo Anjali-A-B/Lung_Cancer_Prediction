@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lung Cancer Prediction</title>
+    {% load static %}
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{% static 'styles.css' %}" rel="stylesheet">
+    <style>
+        body {
+            background: url('{% static "background.jpg" %}') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .landing-container {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 50px;
+            border-radius: 10px;
+        }
+        .landing-container h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        .landing-container .btn {
+            font-size: 1.2em;
+            padding: 10px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-container">
+        <h1>Lung Cancer Prediction</h1>
+        <a href="{% url 'predict' %}" class="btn btn-primary">Enter Details</a>
+    </div>
+</body>
+</html>
